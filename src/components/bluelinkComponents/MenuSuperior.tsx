@@ -86,17 +86,17 @@ export const MenuSuperior = () => {
 
   return (
     <>
-      <Menubar className='h-[7vh] relative md:flex hidden'>
+      <Menubar className='h-[6vh] relative md:flex hidden'>
         {opciones.map((opcion, index) => (
           <>
             <MenubarMenu>
               <MenubarTrigger className='h-full text-[15px] font-normal' key={index}><span className='mr-3'>{opcion.icono}</span>{opcion.titulo}</MenubarTrigger>
-              <MenubarContent>
+              <MenubarContent className=''>
                 {
                   opcion?.subOpciones?.length > 0 ?
                     <>
                       {opcion?.subOpciones?.map((subOpcion, index) => (
-                        <MenubarItem className='h-[5vh] text-[15px]'>
+                        <MenubarItem className='h-[5vh] text-[15px] hover:bg-background'>
                           {subOpcion.titulo}
                           <MenubarShortcut>{subOpcion.icono}</MenubarShortcut>
                         </MenubarItem>
@@ -137,15 +137,16 @@ export const MenuSuperior = () => {
 
         </div>
         <div className='absolute right-[80px] flex gap-3 items-center text-[15px]'>
-          <ModeToggle />
-          <div className='p-[5.5px] transition-all hover:text-red-500 hover:bg-muted border rounded-md cursor-pointer' onClick={() => { router.push("/") }}>
-            <CgLogOff className='w-[23px] h-[23px] ' />
-          </div>
           <p>Sprinfil</p>
           <Avatar className='w-[30px] h-[30px]' >
             <AvatarImage src="https://github.com/shadcn.png" />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
+
+          <div className='p-[5.5px] transition-all hover:text-red-500 hover:bg-muted border rounded-md cursor-pointer' onClick={() => { router.push("/") }}>
+            <CgLogOff className='w-[23px] h-[23px] ' />
+          </div>
+          <ModeToggle />
         </div>
       </Menubar>
 
