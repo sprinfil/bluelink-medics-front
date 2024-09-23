@@ -152,7 +152,7 @@ export const MenuSuperior = () => {
 
       {/* MENU MOVIL */}
       <div className='md:hidden flex h-[7vh] border-b relative'>
-        <div className='h-full flex items-center ml-4 z-20 cursor-pointer' onClick={() => { toggle_menu_telefono(); }} >
+        <div className='h-full flex items-center ml-4 z-50 cursor-pointer' onClick={() => { toggle_menu_telefono(); }} >
           <HamburgerMenuIcon className='h-7 w-7' />
         </div>
         <div className='absolute right-[80px] flex gap-3 items-center text-[15px] h-full'>
@@ -193,7 +193,7 @@ export const MenuSuperior = () => {
           </Menubar>
         </div>
 
-        <div data-state="cerrado" className='bg-background overflow-hidden absolute h-[100vh] data-[state=abierto]:w-full data-[state=cerrado]:w-0 transition-all duration-500 ease' id='menu_telefono'>
+        <div data-state="cerrado" className='bg-background z-40 overflow-hidden absolute h-[100vh] data-[state=abierto]:w-full data-[state=cerrado]:w-0 transition-all duration-500 ease' id='menu_telefono'>
           <div className='mt-[50px] px-10 min-w-[100vw]'>
             <Accordion type="multiple" className="w-full">
               {opciones.map((opcion, index) => (

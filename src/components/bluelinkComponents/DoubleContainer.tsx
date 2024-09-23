@@ -1,6 +1,6 @@
 "use client"
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
-import React from 'react'
+import React, { useState } from 'react'
 
 const DoubleContainer = ({ children }) => {
   return (
@@ -14,8 +14,10 @@ const DoubleContainer = ({ children }) => {
 
 const Seccion1 = ({ children }) => {
 
-  const toggleTableContainer = () => {
+  const [isIconOpen, setIsIconOpen] = useState(false);
 
+  const toggleTableContainer = () => {
+    setIsIconOpen(!isIconOpen);
     let containers = document.getElementsByClassName('tableContainer');
 
     Array.from(containers).forEach((container) => {
@@ -28,17 +30,20 @@ const Seccion1 = ({ children }) => {
         container.setAttribute('data-state', 'open');
       }
     });
+
   }
 
   return (
     <>
-      <div className='w-[20%] border'>
+      <div data-state="open" className='flex ease overflow-hidden w-full border tableContainer data-[state=open]:md:w-[20%] data-[state=closed]:w-0 duration-200 transition-all'>
         {children}
       </div>
-      <div className='w-[25px] border cursor-pointer hover:bg-muted transition-all duration-100 flex items-center mr-3 justify-center'
+      <div className='w-[25px] border cursor-pointer bg-muted transition-all duration-100 flex items-center mr-3 justify-center'
         onClick={() => { toggleTableContainer() }}
       >
-        <ArrowLeftIcon />
+        <ArrowLeftIcon
+          className={`${isIconOpen ? "transition-all rotate-180" : "transition-all "}`}
+        />
       </div>
     </>
   );
@@ -46,7 +51,7 @@ const Seccion1 = ({ children }) => {
 
 const Seccion2 = ({ children }) => {
   return (
-    <div className='flex-grow h-full border'>
+    <div data-state="open" className='overflow-hidden md:flex-grow data-[state=closed]:flex-grow data-[state=open]:w-0 h-full border tableContainer'>
       {children}
     </div>
   );
