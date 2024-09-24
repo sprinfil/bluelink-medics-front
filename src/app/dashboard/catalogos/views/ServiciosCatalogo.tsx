@@ -15,6 +15,7 @@ export const ServiciosCatalogo = () => {
 
   const { editando, setEditando } = ZustandServicioCatalogo();
   const [selectedServicio, setSelectedServicio] = useState({});
+  const [servicios, setServicios] = useState([]);
 
   const data = [
     {
@@ -109,6 +110,10 @@ export const ServiciosCatalogo = () => {
     },
   ];
 
+  useEffect(()=>{
+    setServicios(data);
+  },[])
+
   return (
     <div className='h-full flex-grow px-1'>
       <DoubleContainer>
@@ -116,7 +121,7 @@ export const ServiciosCatalogo = () => {
           <div className='px-5 flex-grow '>
             <ServiciosDataTable
               columns={columns}
-              data={data}
+              data={servicios}
               set={setSelectedServicio}
             />
           </div>
@@ -124,26 +129,26 @@ export const ServiciosCatalogo = () => {
         <Seccion2>
           <div className='h-full'>
             <div className='w-full px-4 py-3 flex items-center gap-5'>
-              <p>{selectedServicio.nombre}</p>
+              <p>{selectedServicio?.nombre}</p>
               {
-                !editando &&
+                !editando && selectedServicio.nombre  &&
                 <>
-                <Pencil2Icon className=' w-[20px] h-[20px] cursor-pointer transition-all'
-                  onClick={()=>{
-                    setEditando(true);
-                  }}
-                />
+                  <Pencil2Icon className=' w-[20px] h-[20px] cursor-pointer transition-all'
+                    onClick={() => {
+                      setEditando(true);
+                    }}
+                  />
                 </>
               }
-          </div>
+            </div>
 
-          <div className='px-4 mt-5'>
-            <ServicioCatalogoForm selectedServicio = {selectedServicio} />
-          </div>
+            <div className='px-4 mt-5'>
+              <ServicioCatalogoForm selectedServicio={selectedServicio} updateData = {setServicios} updateSelected = {setSelectedServicio}/>
+            </div>
 
-        </div>
-      </Seccion2>
-    </DoubleContainer>
+          </div>
+        </Seccion2>
+      </DoubleContainer>
     </div >
   )
 }

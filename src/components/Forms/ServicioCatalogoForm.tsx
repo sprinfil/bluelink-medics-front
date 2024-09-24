@@ -17,16 +17,19 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from '../ui/textarea'
 import { Switch } from '../ui/switch'
 import ZustandServicioCatalogo from '@/app/contexts/ZustandServicioCatalogo'
-
+import { useToast } from "@/hooks/use-toast"
+import { ToastAction } from "@/components/ui/toast"
 const formSchema = z.object({
   nombre: z.string().min(2).max(50),
   descripcion: z.string().min(0).max(200),
   estado: z.boolean(),
 })
 
-export const ServicioCatalogoForm = ({ selectedServicio }) => {
+export const ServicioCatalogoForm = ({ selectedServicio, updateData, updateSelected }) => {
 
   const { editando, setEditando } = ZustandServicioCatalogo();
+
+  const { toast } = useToast()
 
   useEffect(() => {
     form.reset({ ...selectedServicio });
@@ -44,7 +47,27 @@ export const ServicioCatalogoForm = ({ selectedServicio }) => {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     setEditando(false);
-    console.log(values)
+
+ 
+    if (editando) {
+      updateData(prev => {
+        return prev.map(servicio => {
+          if (servicio?.id == selectedServicio?.id) {
+            updateSelected(values);
+            return values
+          } else {
+            return servicio
+          }
+        })
+      })
+      toast({
+        title: "Cambios realizados con exito",
+        description: "Se a modificado el servicio",
+        action: <ToastAction altText="Aceptar">Aceptar</ToastAction>,
+      })
+      console.log(values)
+    }
+
   }
 
 
@@ -117,6 +140,7 @@ export const ServicioCatalogoForm = ({ selectedServicio }) => {
             <>
               <Button onClick={() => {
                 setEditando(false);
+                form.reset({ ...selectedServicio })
               }} className='mt-5' variant={'outline'}>Cancelar</Button>
               <Button type="submit" className='mt-5 ml-3 ' >Aceptar</Button>
             </>

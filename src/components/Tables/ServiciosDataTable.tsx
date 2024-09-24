@@ -21,6 +21,9 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import React from "react"
+import { Cross1Icon } from "@radix-ui/react-icons"
+import { PlusCircleIcon } from "lucide-react"
+import ZustandServicioCatalogo from "@/app/contexts/ZustandServicioCatalogo"
 
 export type Payment = {
   id: string
@@ -51,6 +54,8 @@ export function ServiciosDataTable<TData, TValue>({
     []
   )
 
+  const {creando, setCreando} = ZustandServicioCatalogo();
+
   const table = useReactTable({
     data,
     columns,
@@ -65,7 +70,7 @@ export function ServiciosDataTable<TData, TValue>({
 
   return (
     <>
-      <div className="flex items-center py-4">
+      <div className="flex items-center py-4 gap-2 items-center">
         <Input
           placeholder="Buscar Servicio..."
           value={(table.getColumn("nombre")?.getFilterValue() as string) ?? ""}
@@ -74,6 +79,9 @@ export function ServiciosDataTable<TData, TValue>({
           }
           className="max-w-sm"
         />
+        <div onClick={()=> {setCreando(true);}} className="hover:bg-muted p-1 rounded-md transition-all duration-200 cursor-pointer">
+          <PlusCircleIcon/>
+        </div>
       </div>
       <div className="rounded-md border">
         <Table>

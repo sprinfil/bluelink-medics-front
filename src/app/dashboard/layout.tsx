@@ -1,7 +1,7 @@
 import { MenuSuperior } from '@/components/bluelinkComponents/MenuSuperior'
 import { ThemeProvider } from "@/components/ui/theme-provider"
 import React from 'react'
-
+import { Toaster } from "@/components/ui/toaster"
 const layout = ({ children }) => {
   return (
     <div>
@@ -13,6 +13,7 @@ const layout = ({ children }) => {
       >
         <MenuSuperior />
         {children}
+        <Toaster />
       </ThemeProvider>
     </div>
   )
