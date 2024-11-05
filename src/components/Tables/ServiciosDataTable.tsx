@@ -54,7 +54,7 @@ export function ServiciosDataTable<TData, TValue>({
     []
   )
 
-  const {creando, setCreando} = ZustandServicioCatalogo();
+  const {accion, setAccion} = ZustandServicioCatalogo();
 
   const table = useReactTable({
     data,
@@ -79,7 +79,7 @@ export function ServiciosDataTable<TData, TValue>({
           }
           className="max-w-sm"
         />
-        <div onClick={()=> {setCreando(true);}} className="hover:bg-muted p-1 rounded-md transition-all duration-200 cursor-pointer">
+        <div onClick={()=> {setAccion('crear');}} className="hover:bg-muted p-1 rounded-md transition-all duration-200 cursor-pointer">
           <PlusCircleIcon/>
         </div>
       </div>

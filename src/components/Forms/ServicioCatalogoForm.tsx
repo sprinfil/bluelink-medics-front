@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -19,6 +19,7 @@ import { Switch } from '../ui/switch'
 import ZustandServicioCatalogo from '@/app/contexts/ZustandServicioCatalogo'
 import { useToast } from "@/hooks/use-toast"
 import { ToastAction } from "@/components/ui/toast"
+import { submitForm, useSubmitForm } from '@/app/lib/ServicioCatalogoService'
 const formSchema = z.object({
   nombre: z.string().min(2).max(50),
   descripcion: z.string().min(0).max(200),
@@ -27,13 +28,7 @@ const formSchema = z.object({
 
 export const ServicioCatalogoForm = ({ selectedServicio, updateData, updateSelected }) => {
 
-  const { editando, setEditando } = ZustandServicioCatalogo();
-
-  const { toast } = useToast()
-
-  useEffect(() => {
-    form.reset({ ...selectedServicio });
-  }, [selectedServicio])
+  const { accion, setAccion } = ZustandServicioCatalogo();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -44,37 +39,17 @@ export const ServicioCatalogoForm = ({ selectedServicio, updateData, updateSelec
     },
   })
 
+  const {handleSubmit, response} = useSubmitForm(updateData, updateSelected, selectedServicio, form );
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    setEditando(false);
-
- 
-    if (editando) {
-      updateData(prev => {
-        return prev.map(servicio => {
-          if (servicio?.id == selectedServicio?.id) {
-            updateSelected(values);
-            return values
-          } else {
-            return servicio
-          }
-        })
-      })
-      toast({
-        title: "Cambios realizados con exito",
-        description: "Se a modificado el servicio",
-        action: <ToastAction altText="Aceptar">Aceptar</ToastAction>,
-      })
-      console.log(values)
-    }
-
+    handleSubmit(values, selectedServicio);
   }
 
 
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <fieldset disabled={!editando}>
+        <fieldset disabled={accion == "editando" || accion == "crear" ? false : true}>
           <FormField
             control={form.control}
             name="nombre"
@@ -136,16 +111,17 @@ export const ServicioCatalogoForm = ({ selectedServicio, updateData, updateSelec
           />
 
           {
-            editando &&
+            (accion == "editando" || accion == "crear") &&
             <>
-              <Button onClick={() => {
-                setEditando(false);
-                form.reset({ ...selectedServicio })
-              }} className='mt-5' variant={'outline'}>Cancelar</Button>
+              <Button
+                onClick={() => {
+                  setAccion('ver');
+                  form.reset({ ...selectedServicio })
+                }}
+                className='mt-5' variant={'outline'}>Cancelar</Button>
               <Button type="submit" className='mt-5 ml-3 ' >Aceptar</Button>
             </>
           }
-
         </fieldset>
       </form>
     </Form>

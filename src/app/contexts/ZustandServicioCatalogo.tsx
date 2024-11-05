@@ -2,12 +2,8 @@ import { create } from 'zustand';
 
 
 const ZustandServicioCatalogo = create((set) => ({
-  editando: false,
-  setEditando: (valor) => set({ editando: valor }),
-
-  creando: false,
-  setCreando: (valor) => set({ creando: valor }),
-
+  accion: "",
+  setAccion: (valor) => set({ accion: valor }),
 }));
 
 export default ZustandServicioCatalogo;

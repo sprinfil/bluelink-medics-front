@@ -13,7 +13,7 @@ import React, { useEffect, useState } from 'react'
 
 export const ServiciosCatalogo = () => {
 
-  const { editando, setEditando } = ZustandServicioCatalogo();
+  const { accion, setAccion } = ZustandServicioCatalogo();
   const [selectedServicio, setSelectedServicio] = useState({});
   const [servicios, setServicios] = useState([]);
 
@@ -110,9 +110,9 @@ export const ServiciosCatalogo = () => {
     },
   ];
 
-  useEffect(()=>{
+  useEffect(() => {
     setServicios(data);
-  },[])
+  }, [])
 
   return (
     <div className='h-full flex-grow px-1'>
@@ -131,11 +131,11 @@ export const ServiciosCatalogo = () => {
             <div className='w-full px-4 py-3 flex items-center gap-5'>
               <p>{selectedServicio?.nombre}</p>
               {
-                !editando && selectedServicio.nombre  &&
+                accion != "editando" && selectedServicio?.nombre &&
                 <>
                   <Pencil2Icon className=' w-[20px] h-[20px] cursor-pointer transition-all'
                     onClick={() => {
-                      setEditando(true);
+                      setAccion('editando');
                     }}
                   />
                 </>
@@ -143,7 +143,7 @@ export const ServiciosCatalogo = () => {
             </div>
 
             <div className='px-4 mt-5'>
-              <ServicioCatalogoForm selectedServicio={selectedServicio} updateData = {setServicios} updateSelected = {setSelectedServicio}/>
+              <ServicioCatalogoForm selectedServicio={selectedServicio} updateData={setServicios} updateSelected={setSelectedServicio} />
             </div>
 
           </div>
