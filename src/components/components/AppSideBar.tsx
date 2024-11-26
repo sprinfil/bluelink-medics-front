@@ -97,7 +97,7 @@ export function AppSidebar() {
       options: [
         { title: "Roles", url: "/", icon: <TbHierarchy3 /> },
         { title: "Usuarios", url: "/", icon: <HiUsers /> },
-        { title: "Catalogos", url: "/", icon: <AiOutlineBars /> },
+        { title: "Catalogos", url: "/catalogos", icon: <AiOutlineBars /> },
         { title: "Config. Generales", url: "/", icon: <IoMdOptions /> },
       ],
     },

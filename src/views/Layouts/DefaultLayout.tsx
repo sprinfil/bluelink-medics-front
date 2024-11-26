@@ -15,7 +15,7 @@ export const DefaultLayout = () => {
     <>
       <SidebarProvider>
         <AppSidebar/>
-        <main className='w-full p-2'>
+        <main className='w-full p-2 h-[100vh] flex flex-col'>
           <SidebarTrigger/>
           <Outlet />
         </main>

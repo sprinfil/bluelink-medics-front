@@ -5,6 +5,7 @@ import { GuestLayout } from './views/Layouts/GuestLayout';
 import { Login } from './views/Auth/Login';
 import { NotFound } from './views/Layouts/NotFound';
 import { Pacientes } from './views/Pacientes/Pacientes';
+import { Catalogos } from './views/Catalogos/Catalogos';
 
 
 const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
             {
                 path: '/pacientes',
                 element: <Pacientes />
+            },
+            {
+                path: '/catalogos',
+                element: <Catalogos />
             },
         ]
     },
