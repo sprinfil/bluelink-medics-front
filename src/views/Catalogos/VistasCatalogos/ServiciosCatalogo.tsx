@@ -7,6 +7,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { DataTableServiciosCatalogo } from '@/components/components/DataTableServiciosCatalogo'
+
 
 export const ServiciosCatalogo = () => {
   return (
@@ -15,11 +17,11 @@ export const ServiciosCatalogo = () => {
         <CardHeader>
           <CardTitle>Servicios</CardTitle>
           <CardDescription>
-            catalogo de servicios.
+            Catalogo de servicios
           </CardDescription>
         </CardHeader>
         <CardContent>
-
+          <DataTableServiciosCatalogo />
         </CardContent>
       </Card>
     </>
