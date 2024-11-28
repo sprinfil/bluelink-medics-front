@@ -35,6 +35,7 @@ import { FaCalendarAlt } from "react-icons/fa";
 import { ChevronDown, ChevronsUpDown } from "lucide-react";
 import { MdPointOfSale } from "react-icons/md";
 import { AiOutlineBars } from "react-icons/ai";
+import blueLinkImg from "../../assets/blue-link.jpg";
 
 export function AppSidebar() {
   const navigate = useNavigate();
@@ -130,6 +131,9 @@ export function AppSidebar() {
 
       <SidebarContent>
         <SidebarGroup>
+          <div className="w-full flex items-center ml-2 mt-2">
+            <img src={blueLinkImg} className="w-[50px] h-[50px] rounded-md shadow-md" />
+          </div>
           <SidebarGroupLabel>BlueLink Medics</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
