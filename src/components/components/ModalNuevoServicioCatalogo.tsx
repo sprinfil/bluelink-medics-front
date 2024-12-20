@@ -49,11 +49,11 @@ export function ModalNuevoServicioCatalogo() {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button className="ml-auto">Nuevo Servicio<FiPlusCircle /></Button>
+        <Button className="ml-auto">Nuevo <FiPlusCircle /></Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Nuevo Servicio</AlertDialogTitle>
+          <AlertDialogTitle></AlertDialogTitle>
           <AlertDialogDescription>
           </AlertDialogDescription>
         </AlertDialogHeader>
@@ -69,7 +69,7 @@ export function ModalNuevoServicioCatalogo() {
                     <Input placeholder="Nombre" {...field} />
                   </FormControl>
                   <FormDescription>
-                    Nombre del servicio
+               
                   </FormDescription>
                   <FormMessage />
                 </FormItem>

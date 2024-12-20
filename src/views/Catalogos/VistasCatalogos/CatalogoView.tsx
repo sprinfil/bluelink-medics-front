@@ -10,18 +10,20 @@ import {
 import { DataTableServiciosCatalogo } from '@/components/components/DataTableServiciosCatalogo'
 
 
-export const ServiciosCatalogo = () => {
+export const CatalogoView = ({ nombre, descripcion, endpoint }) => {
   return (
     <>
       <Card className='h-full'>
         <CardHeader>
-          <CardTitle>Servicios</CardTitle>
+          <CardTitle>{nombre}</CardTitle>
           <CardDescription>
-            Catalogo de servicios
+            {descripcion}
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <DataTableServiciosCatalogo />
+          <DataTableServiciosCatalogo
+            endpoint={endpoint}
+          />
         </CardContent>
       </Card>
     </>

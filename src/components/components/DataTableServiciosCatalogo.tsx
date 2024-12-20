@@ -105,7 +105,7 @@ export const columns: ColumnDef<Payment>[] = [
   },
 ]
 
-export function DataTableServiciosCatalogo() {
+export function DataTableServiciosCatalogo({endpoint}) {
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
@@ -137,7 +137,7 @@ export function DataTableServiciosCatalogo() {
     <div className="w-full">
       <div className="flex items-center py-4">
         <Input
-          placeholder="Buscar Servicio ..."
+          placeholder="Buscar ..."
           value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn("email")?.setFilterValue(event.target.value)

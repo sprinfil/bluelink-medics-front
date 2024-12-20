@@ -16,7 +16,7 @@ import {
     TabsList,
     TabsTrigger,
 } from "@/components/ui/tabs"
-import { ServiciosCatalogo } from './VistasCatalogos/ServiciosCatalogo'
+import { CatalogoView, ServiciosCatalogo } from './VistasCatalogos/CatalogoView'
 
 export const Catalogos = () => {
     return (
@@ -26,7 +26,11 @@ export const Catalogos = () => {
                 <TabsTrigger value="insumos">Insumos</TabsTrigger>
             </TabsList>
             <TabsContent value="servicios" className='h-full'>
-                <ServiciosCatalogo />
+                <CatalogoView
+                    nombre={"Servicios"}
+                    descripcion={"Catalogo de servicios"}
+                    endpoint={"/servicios"}
+                />
             </TabsContent>
             <TabsContent value="insumos">
                 <Card>
