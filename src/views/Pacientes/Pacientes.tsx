@@ -8,19 +8,22 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { DataTablePacientes } from '@/components/components/DataTablePacientes'
+
+
 
 export const Pacientes = () => {
   return (
-    <div>
-      <Card className='h-full'>
+    <div className='h-full'>
+      <Card className=''>
         <CardHeader>
           <CardTitle>Pacientes</CardTitle>
           <CardDescription>
             Listado de pacientes
           </CardDescription>
         </CardHeader>
-        <CardContent>
-
+        <CardContent className=''>
+          <DataTablePacientes />
         </CardContent>
       </Card>
     </div>

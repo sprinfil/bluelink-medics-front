@@ -6,6 +6,7 @@ import { Login } from './views/Auth/Login';
 import { NotFound } from './views/Layouts/NotFound';
 import { Pacientes } from './views/Pacientes/Pacientes';
 import { Catalogos } from './views/Catalogos/Catalogos';
+import { VerPaciente } from './views/Pacientes/VerPaciente';
 
 
 const router = createBrowserRouter([
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
             {
                 path: '/pacientes',
                 element: <Pacientes />
+            },
+            {
+                path: '/paciente/verPaciente',
+                element: <VerPaciente />
             },
             {
                 path: '/catalogos',
