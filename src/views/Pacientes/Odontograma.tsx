@@ -1,12 +1,14 @@
 import { Diente } from '@/components/components/Diente'
+import { ReferenciaOdontograma } from '@/components/components/ReferenciaOdontograma';
 import { Button } from '@/components/ui/button'
 import React from 'react'
-
+import { FaQuestionCircle } from "react-icons/fa";
 export const Odontograma = () => {
   return (
     <>
-      <div className='w-full border border-primary rounded-md'>
+      <div className='w-full border border-primary rounded-md flex'>
         <Button variant={"link"}>Exportar PDF</Button>
+        <ReferenciaOdontograma />
       </div>
       <div className='w-full flex flex-col items-center justify-center mt-10 overflow-auto'>
         <div className='flex'>
