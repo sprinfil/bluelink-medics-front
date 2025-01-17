@@ -20,7 +20,9 @@ import { useNavigate } from 'react-router-dom'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { FormPaciente } from '@/components/components/FormPaciente'
 import PacienteDashBoard from '@/components/components/PacienteDashBoard'
-
+import "../../css/diente.css";
+import { Diente } from '@/components/components/Diente'
+import { Odontograma } from './Odontograma'
 
 export const VerPaciente = () => {
   const navigate = useNavigate();
@@ -56,7 +58,7 @@ export const VerPaciente = () => {
             <PacienteDashBoard />
           </TabsContent>
           <TabsContent value="odontograma">
-
+            <Odontograma />
           </TabsContent>
         </Tabs>
       </CardContent>

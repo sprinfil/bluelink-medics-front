@@ -1,0 +1,16 @@
+/* Estilo por defecto del rectángulo */
+.hoverable-rect {
+    transition: fill 0.3s ease, stroke 0.3s ease;
+    /* Transición para un efecto suave */
+}
+
+/* Estilo al hacer hover */
+.hoverable-rect:hover {
+    fill: lightblue;
+    /* Cambia el color de relleno */
+    stroke: black;
+    /* Agrega un borde negro */
+    /* stroke-width: 2; */
+    /* Define el grosor del borde */
+    cursor: pointer;
+}
