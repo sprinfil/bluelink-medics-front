@@ -78,7 +78,7 @@ export function AppSidebar() {
     },
     {
       title: "Citas",
-      url: "/",
+      url: "/citas",
       icon: <FaCalendarAlt className={iconStlyes} />,
     },
     {
@@ -128,9 +128,9 @@ export function AppSidebar() {
         </SidebarMenu>
       </SidebarHeader> */}
 
-      <SidebarContent>
+      <SidebarContent >
         <SidebarGroup>
-          <div className="w-full flex items-center ml-2 mt-2  mb-3">
+          <div className="w-full flex items-center ml-2 mt-2 mb-3">
             <img src={blueLinkImg} className="w-[80px] h-[80px] rounded-md shadow-md" />
           </div>
           <SidebarGroupLabel>BlueLink Medics</SidebarGroupLabel>
@@ -147,7 +147,7 @@ export function AppSidebar() {
                       <SidebarMenuItem>
                         <CollapsibleTrigger asChild>
                           <SidebarMenuButton className="relative">
-                            <span className={iconStlyes}>{item.icon}</span>  {item.title} <SideBarMenuCollapsibleIconButton />
+                            <span className={iconStlyes}>{item.icon}</span> <p className="text-lg">{item.title}</p>   <SideBarMenuCollapsibleIconButton />
                           </SidebarMenuButton>
                         </CollapsibleTrigger>
 
@@ -158,7 +158,7 @@ export function AppSidebar() {
                                 <SidebarMenuButton
                                   onClick={() => navigate(option.url)}
                                 >
-                                  <span className={iconStlyes}>{option.icon}</span> {option.title}
+                                  <span className={iconStlyes}>{option.icon}</span> <p className="text-lg">{option.title}</p>
                                 </SidebarMenuButton>
                               </SidebarMenuSubItem>
                             ))}
@@ -178,7 +178,7 @@ export function AppSidebar() {
                     >
                       <div>
                         {item.icon}
-                        <span>{item.title}</span>
+                        <span className="text-lg">{item.title}</span>
                       </div>
                     </SidebarMenuButton>
                   </SidebarMenuItem>

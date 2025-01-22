@@ -41,7 +41,6 @@ export const Diente = ({ numero, ImgOrientation = "top" }) => {
 
 
         <polygon
-
           className="hoverable-rect"
           points="20,20 40,20 49.3,10 10.6,10"
           fill="white"

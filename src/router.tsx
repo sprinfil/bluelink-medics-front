@@ -7,6 +7,7 @@ import { NotFound } from './views/Layouts/NotFound';
 import { Pacientes } from './views/Pacientes/Pacientes';
 import { Catalogos } from './views/Catalogos/Catalogos';
 import { VerPaciente } from './views/Pacientes/VerPaciente';
+import { Citas } from './views/Citas/Citas';
 
 
 const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
             {
                 path: '/catalogos',
                 element: <Catalogos />
+            },
+            {
+                path: '/citas',
+                element: <Citas />
             },
         ]
     },

@@ -27,10 +27,9 @@ import { Odontograma } from './Odontograma'
 export const VerPaciente = () => {
   const navigate = useNavigate();
   return (
-    <Card className='h-full'>
+    <Card className='min-h-[120vh]'>
       <CardHeader>
         <Breadcrumb>
-
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink className='cursor-pointer' onClick={() => navigate("/pacientes")}>
@@ -45,7 +44,7 @@ export const VerPaciente = () => {
         </Breadcrumb>
 
       </CardHeader>
-      <CardContent>
+      <CardContent className=''>
         <Tabs defaultValue="principal" className="w-full">
           <TabsList>
             <TabsTrigger value="principal">Principal</TabsTrigger>
@@ -53,11 +52,9 @@ export const VerPaciente = () => {
             <TabsTrigger value="consentimiento">Consentimiento</TabsTrigger>
           </TabsList>
           <TabsContent value="principal">
-            {/* <CardTitle className='mb-5'>Miguel Angel Murillo Jaimes</CardTitle> */}
-            {/* <CardDescription className='my-2'>Detalles del paciente</CardDescription> */}
             <PacienteDashBoard />
           </TabsContent>
-          <TabsContent value="odontograma">
+          <TabsContent value="odontograma" className=''>
             <Odontograma />
           </TabsContent>
         </Tabs>
