@@ -54,7 +54,7 @@ export const VerPaciente = () => {
           <TabsContent value="principal">
             <PacienteDashBoard />
           </TabsContent>
-          <TabsContent value="odontograma" className=''>
+          <TabsContent value="odontograma" className='h-full '>
             <Odontograma />
           </TabsContent>
         </Tabs>

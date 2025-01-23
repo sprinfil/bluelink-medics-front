@@ -1,0 +1,17 @@
+@keyframes fadeAndMove {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+        /* Mueve el div hacia arriba */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animated-div {
+    transition: all;
+    animation: fadeAndMove 0.2s ease-in-out;
+}

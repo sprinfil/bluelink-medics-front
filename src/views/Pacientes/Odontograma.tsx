@@ -3,15 +3,38 @@ import { ReferenciaOdontograma } from '@/components/components/ReferenciaOdontog
 import { Button } from '@/components/ui/button'
 import React from 'react'
 import { FaQuestionCircle } from "react-icons/fa";
+import {
+  diente11,
+  diente12,
+  diente13,
+  diente14,
+  diente15,
+  diente16,
+  diente17,
+  diente18,
+} from "../../constants/images";
+
 export const Odontograma = () => {
+  const dientesImagenes =
+    [
+      diente11,
+      diente12,
+      diente13,
+      diente14,
+      diente15,
+      diente16,
+      diente17,
+      diente18,
+    ]
+
   return (
     <>
-      <div className='h-full '>
+      <div className='min-h-[120vh] '>
         <div className='w-full border border-primary rounded-md flex'>
           <Button variant={"link"}>Exportar PDF</Button>
           <ReferenciaOdontograma />
         </div>
-        <div className='w-full flex flex-col items-center justify-center mt-10 overflow-auto'>
+        <div className='w-full  min-h-[120vh] flex flex-col items-center  mt-10 overflow-auto'>
           <div className='flex'>
 
             <div className='flex border-r-[2px] border-b-[2px] border-black py-5'>
@@ -20,6 +43,7 @@ export const Odontograma = () => {
                   <Diente
                     key={index}
                     numero={index}
+                    dienteImg={dientesImagenes[(7 - index)]}
                   />
                 ))
               }
